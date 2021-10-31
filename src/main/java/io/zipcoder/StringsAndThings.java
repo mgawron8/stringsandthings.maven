@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 /**
  * @author tariq
  */
@@ -15,7 +17,15 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        int count = 0;
+        String[] inputes = input.split(" ");
+
+        for (int i = 0; i < inputes.length; i++) {
+            if( (inputes[i].charAt(inputes.length) == 'y') || (inputes[i].charAt(inputes.length) == 'z')){
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -28,7 +38,10 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+
+        String output = base.replaceAll(remove, "");
+
+        return output;
     }
 
     /**
@@ -40,7 +53,13 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        int iscount = 0;
+        int notcount = 0;
+
+       iscount = (input.split("is", -1).length-1);
+        notcount = (input.split("not", -1).length-1);
+        boolean compare = (iscount == notcount);
+        return compare;
     }
 
     /**
@@ -51,7 +70,17 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        Boolean happy = false;
+        for (int i = 0; (i < input.length()); i++) {
+            if((input.charAt(i) == 'g') && (input.charAt(i+1) == 'g')){
+                i++;
+                happy = true;
+            } if((input.charAt(i) == 'g') && (input.charAt(i+1) != 'g')) {
+
+            }
+        }
+
+        return happy;
     }
 
 
@@ -63,6 +92,12 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int count = 0;
+        for (int i = 0; i < input.length(); i++) {
+            if((input.charAt(i) == (input.charAt(i+1)) && ((input.charAt(i) == (input.charAt(i+2)))))) {
+                count++;
+            }
+        }
+        return count;
     }
 }
